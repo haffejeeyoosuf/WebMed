@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "WebMed": {
+    "agricoza-web": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/WebMed",
+            "outputPath": "dist/agricoza-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,7 +28,7 @@
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
-              "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
+              "node_modules/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
               "node_modules/admin-lte/docs_html/assets/css/adminlte.css"
             ],
             "scripts": [
@@ -80,18 +80,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "WebMed:build"
+            "browserTarget": "agricoza-web:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "WebMed:build:production"
+              "browserTarget": "agricoza-web:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "WebMed:build"
+            "browserTarget": "agricoza-web:build"
           }
         },
         "test": {
@@ -128,15 +128,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "WebMed:serve"
+            "devServerTarget": "agricoza-web:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "WebMed:serve:production"
+              "devServerTarget": "agricoza-web:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "WebMed"
+    }
+  },
+  "defaultProject": "agricoza-web",
+  "cli": {
+    "analytics": false
+  }
 }

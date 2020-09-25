@@ -1,0 +1,94 @@
+<br>
+<h1 style="text-align:center;">Edit Profile</h1>
+
+<div style="padding-top: 50px; padding-left: 250px; padding-right: 250px;">
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Update Your Details</h3>
+  </div>
+  <!-- /.card-header -->
+  <!-- form start -->
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+
+  <input type="hidden" name="user_id" [value]="service.formData.user_id">
+  <input type="hidden" name="user_datecreated" [value]="service.formData.user_datecreated">
+  
+    <div class="card-body">
+
+      <h6 id="RegDate" style="color: gray; text-align: right;">Registration Date: </h6>
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="user_fullname.valid" [class.red-icon]="user_fullname.invalid && user_fullname.touched"></i>
+          </div>
+        </div>
+        <input id="Profile_Name" name="user_fullname" #user_fullname="ngModel" [(ngModel)]="service.formData.user_fullname" class="form-control"
+        placeholder="Full Name" required>
+      </div>
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-mobile-alt" [class.green-icon]="user_phone.valid" [class.red-icon]="user_phone.invalid && user_phone.touched"></i>
+            </div>
+          </div>
+        <input name="user_phone" #user_phone="ngModel" [(ngModel)]="service.formData.user_phone" class="form-control"
+        placeholder="Phone Number" required>
+      </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-envelope" [class.green-icon]="user_email.valid" [class.red-icon]="user_email.invalid && user_email.touched"></i>
+          </div>
+        </div>
+        <input name="user_email" #user_email="ngModel" [(ngModel)]="service.formData.user_email" class="form-control"
+        placeholder="Email" required>
+      </div>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-lock" [class.green-icon]="user_password.valid" [class.red-icon]="user_password.invalid && user_password.touched"></i>
+          </div>
+        </div>
+        <input type="password" name="user_password" #user_password="ngModel" [(ngModel)]="service.formData.user_password" class="form-control"
+        placeholder="New Password" required>
+      </div>
+      </div>
+
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-lock" [class.green-icon]="user_password.valid" [class.red-icon]="user_password.invalid && user_password.touched"></i>
+          </div>
+        </div>
+        <input type="password" id="ConfirmPW" class="form-control"
+        placeholder="Confirm Password" required>
+      </div>
+      </div>
+
+    </div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+      <button style="background-color: #075E54;" class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-database"></i> Submit</button>
+    </div>
+  </form>
+</div>
+</div>

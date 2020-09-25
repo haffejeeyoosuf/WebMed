@@ -1,0 +1,74 @@
+<style>
+  .login-box {
+  width: 425px;
+}
+</style>
+
+<body style="background-color: white; padding-right: 200px;" class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a><b>Web</b>Med</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card" >
+    <div class="card-body login-card-body" style="background-color: cadetblue;">
+      <h2 style="text-align: center; color: white;">Login </h2>
+      <br>
+      <!-- <img src="../assets/images/AgricozaLogo2.png" width="50%" style="position: relative; left: 100px;" alt="Agricoza Logo"> -->
+      
+      <br>
+      <p style="color: white;" class="login-box-msg">Sign in to continue</p>
+
+      <form #form="ngForm" autocomplete="on" (submit)="onSubmit(form)">
+
+        <div style="position: relative; left: 40px;" class="col-md-10">
+        
+        <div class="input-group mb-3">
+          <input type="email" name="user_email" #user_email="ngModel" [(ngModel)]="service.formData.user_email" class="form-control" placeholder="Email" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span style="color: white;" class="fas fa-envelope"></span>
+              <i [class.green-icon]="user_email.valid" [class.red-icon]="user_email.invalid && user_email.touched"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input name="user_password" #user_password="ngModel" [(ngModel)]="service.formData.user_password" type="password" class="form-control" placeholder="Password" required> 
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span style="color: white;" class="fas fa-lock"></span>
+              <i [class.green-icon]="user_password.valid" [class.red-icon]="user_password.invalid && user_password.touched"></i>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-dark btn-block" [disabled]="form.invalid">Sign In</button>
+          </div>
+
+          <!-- /.col -->
+        </div>
+        <br>
+        <p class="mb-1">
+          <a style="color: blue;" href="/recoverpassword">I forgot my password</a>
+        </p>
+      </div>
+      </form>
+
+      <div style="position: relative; left: 40px;" class="col-md-10">
+      <div class="social-auth-links text-center mb-3">
+        <p style="color: white;">- OR -</p>
+        <a href="/register" class="btn btn-block btn-danger">
+          <i  class="fas fa-user-circle mr-2"></i> Sign Up
+        </a>
+      </div>
+    </div>
+      <!-- /.social-auth-links -->
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+</body>

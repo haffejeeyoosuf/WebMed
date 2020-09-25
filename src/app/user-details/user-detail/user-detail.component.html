@@ -1,0 +1,104 @@
+<style>
+  .register-box {
+  width: 450px;
+}
+</style>  
+  
+  <body style="background-color: white; padding-right: 200px;" class="hold-transition register-page">
+    
+    <div class="register-box">
+      <div class="register-logo">
+        <a><b>Web</b>Med</a>
+      </div>
+    
+      <div class="card">
+        <div class="card-body register-card-body" style="background-color: cadetblue;">
+          <h1 style="color: white; text-align: center;">Registration</h1>
+          <!-- <img src="../assets/images/AgricozaLogo2.png" width="50%" style="position: relative; left: 105px;" alt="Agricoza Logo"> -->
+          <p style="color: white;" class="login-box-msg">Register a new account</p>
+    
+          <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+
+            <div style="position: relative; left: 40px;" class="col-md-10">
+
+            <div class="form-group">
+            <div class="input-group mb-3">
+              <input name="user_fullname" #user_fullname="ngModel" [(ngModel)]="service.formData.user_fullname" type="text" class="form-control" placeholder="Full Name" required>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span style="color: white; width: 0.4cm;" class="fas fa-user"></span>
+                  <i [class.green-icon]="user_fullname.valid" [class.red-icon]="user_fullname.invalid && user_fullname.touched"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input name="user_email" #user_email="ngModel" [(ngModel)]="service.formData.user_email" type="email" class="form-control" placeholder="Email" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span style="color: white;" class="fas fa-envelope"></span>
+                <i [class.green-icon]="user_email.valid" [class.red-icon]="user_email.invalid && user_email.touched"></i>
+              </div>
+            </div>
+          </div>
+
+            <div class="input-group mb-3">
+              <input autocomplete="false" name="user_phone" #user_phone="ngModel" [(ngModel)]="service.formData.user_phone" type="text" class="form-control" placeholder="Contact Number" required>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span style="color: white; width: 0.4cm;" class="fas fa-mobile"></span>
+                  <i [class.green-icon]="user_phone.valid" [class.red-icon]="user_phone.invalid && user_phone.touched"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <input name="user_password" #user_password="ngModel" [(ngModel)]="service.formData.user_password" type="password" class="form-control" placeholder="Password" required>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span style="color: white;" class="fas fa-lock"></span>
+                  <i [class.green-icon]="user_password.valid" [class.red-icon]="user_password.invalid && user_password.touched"></i>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="input-group mb-3">
+              <input id="ConfirmPW2" type="password" class="form-control" placeholder="Retype password" required>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span style="color: white;" class="fas fa-lock"></span>
+                  <i [class.green-icon]="user_password.valid" [class.red-icon]="user_password.invalid && user_password.touched"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- /.col -->
+              <div class="col-4">
+                <button type="submit" class="btn btn-dark btn-block" [disabled]="form.invalid">Register</button>
+              </div>
+              <!-- /.col -->
+            </div>
+          </div>
+          </form>
+    
+          <div style="position: relative; left: 40px;" class="col-md-10">
+          <div class="social-auth-links text-center">
+            <p style="color: white;" >- OR -</p>
+            <a style="color: white;" class="text-center">Already have an account ?</a>
+            <br>
+            <br>
+            <a href="/login" class="btn btn-block btn-danger">
+              <i class="fas fa-user-circle mr-2"></i>
+              Sign In
+            </a>
+          </div>
+        </div>
+        </div>
+        <!-- /.form-box -->
+      </div><!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+  </body>
